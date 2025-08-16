@@ -122,6 +122,7 @@ locals {
     "choco install -y kubernetes-cli",
     "choco install -y kubernetes-helm",
     "choco install -y azure-cli"
+    "choco install -y openjdk21"
   ]
 
   )
