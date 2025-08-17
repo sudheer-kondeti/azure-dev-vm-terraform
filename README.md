@@ -1,29 +1,35 @@
 # azure-dev-vm-terraform
-Terraform Azure DevBox is an IaC solution for provisioning a fully configured development environment in Microsoft Azure. It automates the creation of virtual networks, secure access and developer-ready virtual machines (Windows) using Terraform
 
-# Terraform Azure DevBox
+[![Terraform](https://img.shields.io/badge/Terraform-≥1.5-blueviolet?logo=terraform)](https://www.terraform.io/)  
+[![Azure](https://img.shields.io/badge/Azure-Cloud-blue?logo=microsoft-azure)](https://azure.microsoft.com/)  
+[![OS](https://img.shields.io/badge/OS-Windows%2011%20%7C%20Ubuntu-green?logo=windows)](#)  
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Provision a developer-ready Virtual Machine in Azure using Terraform.  
-This project automates the creation of a Windows or Linux development VM, installs essential tools, and can optionally clone source code repositories.
+**Terraform Azure DevBox** is an Infrastructure-as-Code (IaC) solution that provisions a fully configured cloud development environment in Microsoft Azure. It automates the creation of networking resources, secure access, and developer-ready virtual machines (Windows or Linux), with pre-installed tools to help you start coding immediately.
 
 ---
 
 ## 🚀 Features
-- Creates an Azure Virtual Network, Subnet, and Public IP  
-- Provisions a Windows or Ubuntu VM (configurable)  
-- Installs developer tools (Git, IntelliJ IDEA, Docker, Kubernetes CLI, Helm, Azure CLI, etc.)  
-- Supports private/public repo cloning on first boot  
-- Optional integration with Azure Key Vault for secure secrets  
-- Supports Spot VM for lower cost (with eviction risk)
+- Automated setup of Azure Virtual Network, Subnet, and Public IP
+- Provisioning of **Windows 11** or **Ubuntu** virtual machines (configurable)
+- Pre-installation of popular development tools:
+    - Git
+    - IntelliJ IDEA
+    - Docker / Kubernetes CLI
+    - Helm
+    - Azure CLI
+- Automatic cloning of public/private Git repositories on first boot
+- Optional integration with **Azure Key Vault** for secret management
+- Cost optimization with **Spot VM** support (up to 70% savings with eviction risk)
 
 ---
 
 ## 📂 Project Structure
-├── main.tf # Core Terraform configuration
-├── variables.tf # Input variables
-├── outputs.tf # Outputs after provisioning
-├── install-devtools.ps1 # (Optional) Windows script to install dev tools
-└── README.md # Project documentation
+    ├── main.tf # Core Terraform configuration
+    ├── variables.tf # Input variables
+    ├── outputs.tf # Outputs after provisioning
+    ├── install-devtools.ps1 # (Optional) Windows script to install dev tools
+    └── README.md # Project documentation
 
 ---
 
@@ -41,12 +47,15 @@ This project automates the creation of a Windows or Linux development VM, instal
    cd terraform-azure-
    
 2. Initialize Terraform:
+   ```bash 
    terraform init
 3. Plan and apply:
+   ```bash
    terraform plan
    terraform apply -auto-approve
    
 4. Connect to your VM:
+   ```bash 
    az vm list-ip-addresses --name dev-vm --resource-group dev-rg
 
 💰 Cost Estimates
